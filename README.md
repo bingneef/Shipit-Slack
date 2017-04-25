@@ -28,14 +28,12 @@ Afterwards, just simply run: (This triggers the `slack` task on the deploy `depl
 
 ```
 shipit staging deploy
-
 ```
 
 Or you can run the tasks separatly :
 
 ```
 shipit staging slack:init slack:install
-
 ```
 
 
