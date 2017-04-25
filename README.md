@@ -16,7 +16,7 @@ yarn add shipit-slack --dev
 ```
 
 ## Usage
-It is required to set the webhookUrl that links to a Slack services. This can be done in the `shipit.config.slack` key in the config. (an example belof)
+It is required to set the webhookUrl that links to a Slack [incoming webhook](https://my.slack.com/apps/manage/custom-integrations). This can be done in the `shipit.config.slack` key in the config.
 
 ```
 slack: {
