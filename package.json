@@ -1,0 +1,44 @@
+{
+  "name": "shipit-slack",
+  "version": "0.0.1",
+  "description": "Slack tasks for shipit.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bingneef/shipit-slack.git"
+  },
+  "keywords": [
+    "shipit",
+    "deploy",
+    "task",
+    "slack"
+  ],
+  "author": {
+    "name": "Bing Steup",
+    "email": "bingsteup@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bingneef/shipit-slack/issues"
+  },
+  "homepage": "https://github.com/bingneef/shipit-slack",
+  "devDependencies": {
+    "shipit-cli": "^1.4.1",
+    "test": "^0.6.0"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.1",
+    "chalk": "^0.5.1",
+    "moment": "^2.18.1",
+    "node-slackr": "^0.1.4",
+    "path2": "^0.1.0",
+    "shipit-deploy": "^2.4.0",
+    "shipit-utils": "^1.1.3",
+    "sprintf-js": "^1.0.2",
+    "underscore.string": "^3.3.4",
+    "yargs": "^3.4.5"
+  }
+}
