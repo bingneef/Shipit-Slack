@@ -44,6 +44,7 @@
   "homepage": "https://github.com/bingneef/shipit-slack",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "codacy-coverage": "^2.0.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
