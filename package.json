@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && node_modules/jest/bin/jest.js --forceExit --silent",
-    "lint": "node_modules/eslint/bin/eslint.js *.js tasks/**.js __TESTS__/**.js",
+    "lint": "node_modules/eslint/bin/eslint.js *.js tasks/**/**.js __TESTS__/**/**.js",
     "send-coverage": "cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage -p ."
   },
   "jest": {
