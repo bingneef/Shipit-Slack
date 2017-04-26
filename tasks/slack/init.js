@@ -1,22 +1,21 @@
+/* eslint-disable global-require */
 const utils = require('shipit-utils')
-const chalk = require('chalk');
+const chalk = require('chalk')
 
 /**
  * Init task.
  * - Emit npm_inited event.
  */
 
-module.exports = function (gruntOrShipit) {
-  utils.registerTask(gruntOrShipit, 'slack:init', task)
-
-  function task() {
-    let shipit = utils.getShipit(gruntOrShipit)
+module.exports = (gruntOrShipit) => {
+  const task = () => {
+    const shipit = utils.getShipit(gruntOrShipit)
 
     shipit.config = shipit.config || {}
     shipit.config.slack = shipit.config.slack || {}
     shipit.config.slack.webhookUrl = shipit.config.slack.webhookUrl || null
 
-    shipit.config.slack.triggerEvent = shipit.config.slack.triggerEvent !== undefined ? shipit.config.slack.triggerEvent : 'deployed';
+    shipit.config.slack.triggerEvent = shipit.config.slack.triggerEvent || 'deployed'
 
     if (!shipit.config.slack.webhookUrl) {
       const msg = 'Please specify a webhookUrl in the shipit config.'
@@ -30,8 +29,10 @@ module.exports = function (gruntOrShipit) {
 
     if (shipit.config.slack.triggerEvent) {
       shipit.on(shipit.config.slack.triggerEvent, () => {
-        shipit.start('slack:send');
-      });
+        shipit.start('slack:send')
+      })
     }
   }
+
+  utils.registerTask(gruntOrShipit, 'slack:init', task)
 }
