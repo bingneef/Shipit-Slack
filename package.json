@@ -4,7 +4,24 @@
   "description": "Slack tasks for shipit.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && node_modules/jest/bin/jest.js --forceExit --silent",
+    "lint": "node_modules/eslint/bin/eslint.js *.js **/*.js __**__/**/*.js",
+    "send-coverage": "cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage -p ."
+  },
+  "jest": {
+    "verbose": false,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "globals": {
+      "__TEST__": true
+    },
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "shipitfile.js",
+      "tmp"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,14 +43,20 @@
   },
   "homepage": "https://github.com/bingneef/shipit-slack",
   "devDependencies": {
-    "shipit-cli": "^1.4.1",
+    "babel-eslint": "^7.2.3",
+    "codacy-coverage": "^2.0.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "jest": "^19.0.2",
+    "shipit-cli": "^3.0.0",
     "shipit-deploy": "^2.4.0"
   },
   "dependencies": {
-    "chalk": "^0.5.1",
+    "chalk": "^1.1.3",
     "moment": "^2.18.1",
     "node-slackr": "^0.1.4",
-    "shipit-utils": "^1.1.3",
+    "shipit-utils": "^1.4.0",
     "underscore.string": "^3.3.4"
   }
 }

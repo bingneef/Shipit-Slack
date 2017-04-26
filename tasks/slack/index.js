@@ -1,4 +1,4 @@
-var utils = require('shipit-utils');
+const utils = require('shipit-utils');
 
 /**
  * Register Slack tasks.
@@ -7,7 +7,7 @@ var utils = require('shipit-utils');
  */
 
 module.exports = (gruntOrShipit) => {
-  var shipit = utils.getShipit(gruntOrShipit);
+  let shipit = utils.getShipit(gruntOrShipit);
 
   require('./init')(gruntOrShipit);
   require('./send')(gruntOrShipit);
