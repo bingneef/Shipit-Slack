@@ -1,5 +1,7 @@
 /* eslint-disable global-require */
 const utils = require('shipit-utils')
+const init = require('./init')
+const send = require('./send')
 
 /**
  * Register Slack tasks.
@@ -9,8 +11,8 @@ const utils = require('shipit-utils')
 
 module.exports = (gruntOrShipit) => {
   const shipit = utils.getShipit(gruntOrShipit)
-  require('./init')(gruntOrShipit)
-  require('./send')(gruntOrShipit)
+  init(gruntOrShipit)
+  send(gruntOrShipit)
 
   shipit.on('deploy', () => {
     shipit.start('slack:init')
