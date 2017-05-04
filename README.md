@@ -33,13 +33,13 @@ slack: {
 Afterwards, just simply run: (This triggers the `slack` task on the deploy `deployed` or `fetched` event. No additional config necessary.)
 
 ```
-shipit staging deploy
+shipit default deploy
 ```
 
 Or you can run the tasks separatly :
 
 ```
-shipit staging slack:init slack:install
+shipit default slack:init slack:install
 ```
 
 
