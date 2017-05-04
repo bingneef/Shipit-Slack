@@ -1,3 +1,4 @@
-module.exports = function (grunt) {
-  require('./slack')(grunt);
-};
+/* eslint-disable global-require */
+module.exports = (grunt) => {
+  require('./slack')(grunt)
+}

@@ -2,7 +2,13 @@
 
 A set of tasks for [Shipit](https://github.com/shipitjs/shipit) used for [slack](https://slack.com/) slack notifications.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f9c3e73d0ebf4b3faea507390e247635)](https://www.codacy.com/app/bingneef/AristotoServer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bingneef/AristotoServer&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0312a33892fd45018c4224293625f492)](https://www.codacy.com/app/bingneef/shipit-slack?utm_source=github.com&utm_medium=referral&utm_content=bingneef/shipit-slack&utm_campaign=Badge_Coverage)
+[![Codeship Status for bingneef/shipit-slack](https://app.codeship.com/projects/a7c04530-0c86-0135-da8a-06ff7cc4e0e6/status?branch=master)](https://app.codeship.com/projects/215322)
+[![Package status for bingneef/shipit-slack](https://david-dm.org/bingneef/shipit-slack.svg)](https://david-dm.org/bingneef/shipit-slack)
+[![Package status for bingneef/shipit-slack/?type=dev](https://david-dm.org/bingneef/shipit-slack/dev-status.svg)](https://david-dm.org/bingneef/shipit-slack/?type=dev)
 
+# AristotoServer
 **Features:**
 
 - Triggered on the `updated` or `fetched` event from [shipit-deploy](https://github.com/shipitjs/shipit-deploy)
