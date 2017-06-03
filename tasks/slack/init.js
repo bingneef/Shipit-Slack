@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 const utils = require('shipit-utils')
 const chalk = require('chalk')
+const s = require('underscore.string')
 
 /**
  * Init task.
@@ -16,6 +17,9 @@ module.exports = (gruntOrShipit) => {
     shipit.config.slack.webhookUrl = shipit.config.slack.webhookUrl || null
 
     shipit.config.slack.triggerEvent = shipit.config.slack.triggerEvent || 'deployed'
+    shipit.config.slack.message = shipit.config.slack.message || 'Shipit-Slack'
+    shipit.config.slack.status = shipit.config.slack.status || 'good'
+    shipit.config.slack.buildEnv = s(shipit.environment).capitalize().value()
 
     if (!shipit.config.slack.webhookUrl) {
       const msg = 'Please specify a webhookUrl in the shipit config.'
