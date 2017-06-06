@@ -39,7 +39,7 @@ shipit default deploy
 Or you can run the tasks separatly :
 
 ```
-shipit default slack:init slack:install
+shipit default slack:init slack:send
 ```
 
 
@@ -82,6 +82,36 @@ Options: [`good`, `warning`, `error`]
 
 An string that decides what color the notification in Slack gets, they are respectively: green, orange and red.
 
+### `slack.template`
+
+Type: `Object`
+Default:
+```js
+{
+ attachments: [
+   {
+     fallback: '{{message}}',
+     color: '{{status}}',
+     fields: [
+       {
+         title: '{{message}}',
+         value: moment().format('MMMM Do YYYY, H:mm:ss'),
+         short: true
+       },
+       {
+         title: 'Environment',
+         value: '{{buildEnv}}',
+         short: true
+       },
+     ]
+   }
+ ]
+}
+```
+
+Template of slack message. All `{{values}}` will be populated from `shipit.config.slack` object.
+[More info about Slack formatting](https://api.slack.com/docs/message-formatting)
+
 ### Example `shipitfile.js` options usage
 
 ```js
@@ -97,6 +127,25 @@ module.exports = function (shipit) {
         message: 'Shipit-Slack',
         triggerEvent: 'deployed',
         channel: '#default'
+        template: {
+          attachments: [{
+            fallback: 'Frontend deployed to {{buildEnv}}',
+            title: 'Visit',
+            title_link: '{{url}}',
+            pretext: '*Frontend deploy done!*:tada:',
+            color: '{{status}}',
+            fields: [{
+              title: 'Environment',
+              value: '{{buildEnv}}',
+              short: false
+            },
+            {
+              title: 'Changes',
+              value: '{{message}}',
+              short: false
+            }],
+            mrkdwn_in: ['pretext']
+          }]
       }
     }
   });

@@ -2,7 +2,7 @@ const utils = require('shipit-utils')
 const chalk = require('chalk')
 const Slack = require('node-slackr')
 const moment = require('moment')
-const s = require('underscore.string')
+const render = require('json-templater/object')
 
 /**
  * Runs slack send
@@ -15,9 +15,6 @@ module.exports = (gruntOrShipit) => {
     const install = () => {
       shipit.log('Sending slack notification.')
       const channel = shipit.config.slack.channel
-      const message = shipit.config.slack.message || 'Shipit-Slack'
-      const status = shipit.config.slack.status || 'good'
-      const buildEnv = s(shipit.environment).capitalize().value()
 
       const slack = new Slack(shipit.config.slack.webhookUrl,
         {
@@ -25,26 +22,29 @@ module.exports = (gruntOrShipit) => {
         }
       )
 
-      const payload = {
+      const defaultTemplate = {
         attachments: [
           {
-            fallback: message,
-            color: status,
+            fallback: '{{message}}',
+            color: '{{status}}',
             fields: [
               {
-                title: message,
+                title: '{{message}}',
                 value: moment().format('MMMM Do YYYY, H:mm:ss'),
                 short: true
               },
               {
                 title: 'Environment',
-                value: buildEnv,
+                value: '{{buildEnv}}',
                 short: true
               },
             ]
           }
         ]
       }
+
+      const payload =
+        render(shipit.config.slack.template || defaultTemplate, shipit.config.slack)
 
       return slack.notify(payload)
     }
