@@ -39,7 +39,7 @@ shipit default deploy
 Or you can run the tasks separatly :
 
 ```
-shipit default slack:init slack:install
+shipit default slack:init slack:send
 ```
 
 
