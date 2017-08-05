@@ -17,7 +17,7 @@ A set of tasks for [Shipit](https://github.com/shipitjs/shipit) used for [slack]
 ## Install
 
 ```
-npm install shipit-slack --save--dev
+npm install shipit-slack --save-dev
 yarn add shipit-slack --dev
 ```
 
