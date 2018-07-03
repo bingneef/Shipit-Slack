@@ -6,7 +6,9 @@
   "scripts": {
     "test": "npm run lint && node_modules/jest/bin/jest.js --forceExit --silent",
     "lint": "node_modules/eslint/bin/eslint.js *.js tasks/**/**.js __TESTS__/**/**.js",
-    "send-coverage": "cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage -p ."
+    "send-coverage": "cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage -p .",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "jest": {
     "verbose": false,
@@ -58,6 +60,8 @@
     "moment": "^2.18.1",
     "node-slackr": "^0.1.4",
     "shipit-utils": "^1.4.0",
-    "underscore.string": "^3.3.4"
-  }
+    "underscore.string": "^3.3.4",
+    "snyk": "^1.88.0"
+  },
+  "snyk": true
 }
