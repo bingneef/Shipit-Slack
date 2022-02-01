@@ -58,6 +58,6 @@
     "moment": "^2.18.1",
     "node-slackr": "^0.1.4",
     "shipit-utils": "^1.4.0",
-    "underscore.string": "^3.3.4"
+    "underscore.string": "^3.3.6"
   }
 }
